@@ -1,16 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import StackNavigator from './component/navigations/index.js'; // 👈 Importa tu stack de navegación
 
-import {Main} from './component/Main';
+import {Login} from './component/screens/Login'; // Página del login
+//import { Home } from './component/Home'; // Página después del login
+//import {Header} from './component/Header';
 
 export default function App() {
   return (
     <SafeAreaProvider>
-      <View style={styles.container}>
-        <StatusBar style="auto" />
-        <Main />
-      </View>
+      <NavigationContainer>
+        <StackNavigator />
+      </NavigationContainer>
     </SafeAreaProvider>
   );
 }
@@ -18,9 +21,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'black', // Cambiado a negro para evitar conflictos con el fondo de Main
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#0E11E3', // Cambiado a negro para evitar conflictos con el fondo de Main
+
     paddingHorizontal: 12,
   },
 });
